@@ -1,90 +1,90 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import Sorting from './Sorting'
 import {
   StyleSheet,
   Text,
   View,
   FlatList,
   Button,
+  TouchableOpacity,
+  TouchableHighlight,
+  Touchable,
   ListView,
-} from "react-native";
-import Header from "./components/header";
-import { Dimensions } from "react-native";
-//bubble 55, insertion 38, comb 30, shell 25,
-const height = Math.round(Dimensions.get("window").height);
-const width = Math.round(Dimensions.get("window").width);
+} from 'react-native'
+import Header from './components/header'
+import { Dimensions } from 'react-native'
+import { ArrowLeftOutlined } from '@ant-design/icons'
+const height = Math.round(Dimensions.get('window').height)
+const width = Math.round(Dimensions.get('window').width)
+let counter = 0
+const min = 4
+const max = 40
+const header = '#30475e'
+const barColor = '#30475e'
+const yellow = '#f5d76e'
+const grey = '#ccc'
+const green = '#1DBC60'
+const plain = '#ececec'
 
-let loaded = false;
 export default function App() {
-  const [array, setArray] = useState([]);
-  const [slider, setSlider] = useState(22);
+  const [isSortingActive, SetSortingActive] = useState(false)
 
-  const addNumber = () => {
-    setArray([]);
-    for (let i = 1; i <= slider; i++) {
-      //let x = (slider - i) * 30;
-      let x = Math.round(Math.random() * height * 0.8 + 20);
-      let object = { title: x, color: "#30475e", key: i };
-      setArray((currentArray) => {
-        return [object, ...currentArray];
-      });
-    }
-  };
+  if (isSortingActive) return <Sorting goBack={() => SetSortingActive(false)} />
 
-  if (loaded == false) {
-    addNumber();
-    loaded = true;
-  }
   return (
     <View style={styles.container}>
-      <Header
-        array={array}
-        setArray={setArray}
-        slider={slider}
-        setSlider={setSlider}
-        addNumber={addNumber}
-      />
-      <View style={styles.contentContainer}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={array}
-          numColumns={40}
-          renderItem={({ item }) => (
-            <View
-              style={{
-                borderRadius: 4,
-                elevation: 3,
-                shadowOffset: { width: 2, height: 2 },
-                shadowColor: "#333",
-                shadowOpacity: 0.3,
-                shadowRadius: 2,
-                margin: 2,
-                //flex: 1,
-                height: item.title,
-                width: width / 2 / slider,
-                backgroundColor: item.color,
-              }}
-            >
-              <Text style={styles.cardComponent}></Text>
-            </View>
-          )}
-        />
+      <View style={styles.header}>
+        <Text style={styles.title}>Sharan's AlgoVisualizer</Text>
+      </View>
+      <View style={styles.center}>
+        <TouchableHighlight
+          onPress={() => SetSortingActive(true)}
+          style={styles.button}>
+          <Text style={styles.buttonText}>Sorting Visualizer</Text>
+        </TouchableHighlight>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ececec",
+    backgroundColor: '#ececec',
   },
-  contentContainer: {
-    marginHorizontal: width / 8,
-    flex: 1,
-    alignItems: "center",
-  },
-  cardComponent: {
+  header: {
+    flexDirection: 'row',
+    height: '8%',
     padding: 5,
-    margin: 5,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    backgroundColor: header,
   },
-});
+  title: {
+    flex: 1,
+    textAlign: 'center',
+    color: plain,
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    flexDirection: 'row',
+    margin: 5,
+    borderRadius: 10,
+    backgroundColor: header,
+  },
+  buttonText: {
+    flex: 1,
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: plain,
+  },
+})
