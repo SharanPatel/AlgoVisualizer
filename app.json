@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sortVisualizer",
-    "slug": "sortVisualizer",
+    "name": "AlgoVisualizer",
+    "slug": "AlgoVisualizer",
     "platforms": ["web"],
     "version": "1.0.0",
     "orientation": "portrait",
