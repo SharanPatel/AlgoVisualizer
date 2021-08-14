@@ -382,7 +382,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: header,
   },
-  iconLeftArrow: {
-    color: plain,
-  },
 })

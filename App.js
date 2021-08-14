@@ -13,7 +13,13 @@ import {
 } from 'react-native'
 import Header from './sortComponents/header'
 import { Dimensions } from 'react-native'
-import { ArrowLeftOutlined } from '@ant-design/icons'
+import {
+  ArrowLeftOutlined,
+  GithubOutlined,
+  HomeOutlined,
+  LinkedinOutlined,
+} from '@ant-design/icons'
+import Searching from './Searching'
 const height = Math.round(Dimensions.get('window').height)
 const width = Math.round(Dimensions.get('window').width)
 let counter = 0
@@ -27,20 +33,48 @@ const green = '#1DBC60'
 const plain = '#ececec'
 
 export default function App() {
+  const [isSearchingActive, SetSearchingActive] = useState(false)
   const [isSortingActive, SetSortingActive] = useState(false)
 
-  if (isSortingActive) return <Sorting goBack={() => SetSortingActive(false)} />
+  if (isSearchingActive) {
+    return <Searching goBack={() => SetSearchingActive(false)} />
+  }
+  if (isSortingActive) {
+    return <Sorting goBack={() => SetSortingActive(false)} />
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Sharan's AlgoVisualizer</Text>
+        <View style={styles.media}>
+          <a target='_blank' href='https://github.com/SharanPatel'>
+            <GithubOutlined
+              style={{ fontSize: '30px', color: plain, marginRight: 8 }}
+            />
+          </a>
+          <a target='_blank' href='https://www.linkedin.com/in/sharan-patel/'>
+            <LinkedinOutlined
+              style={{ fontSize: '30px', color: plain, marginRight: 8 }}
+            />
+          </a>
+          <a target='_blank' href='https://sharanpatel.ca/'>
+            <HomeOutlined
+              style={{ fontSize: '30px', color: plain, marginRight: 8 }}
+            />
+          </a>
+        </View>
       </View>
       <View style={styles.center}>
         <TouchableHighlight
+          onPress={() => SetSearchingActive(true)}
+          style={styles.button}>
+          <Text style={styles.buttonText}>Searching</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
           onPress={() => SetSortingActive(true)}
           style={styles.button}>
-          <Text style={styles.buttonText}>Sorting Visualizer</Text>
+          <Text style={styles.buttonText}>Sorting</Text>
         </TouchableHighlight>
       </View>
     </View>
@@ -62,9 +96,8 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    textAlign: 'center',
     color: plain,
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   center: {
@@ -73,8 +106,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    flexDirection: 'row',
-    margin: 5,
+    width: '25%',
+    margin: 16,
     borderRadius: 10,
     backgroundColor: header,
   },
@@ -86,5 +119,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: plain,
+  },
+  media: {
+    padding: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '25%',
   },
 })
