@@ -7,7 +7,7 @@ import {
   Button,
   ListView,
 } from 'react-native'
-import Header from './components/header'
+import Header from './sortComponents/header'
 import { Dimensions } from 'react-native'
 const height = Math.round(Dimensions.get('window').height)
 const width = Math.round(Dimensions.get('window').width)
