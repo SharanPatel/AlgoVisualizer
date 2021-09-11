@@ -19,7 +19,7 @@ Searching	|	Sorting
 ![Searching Visualizer](https://media.giphy.com/media/PS7prwXLyrXmJ0DErR/giphy.gif?cid=790b761175ba03fb9c3f445b4db0f23d45321889ab264cc9&rid=giphy.gif&ct=g) |  ![Sorting Visualizer](https://media.giphy.com/media/p9xMirGjDT4mg3FzCa/giphy.gif?cid=790b761133148e54f03aa3693b6427cc67c8f788489a79db&rid=giphy.gif&ct=g)
 
 ### Want to try it yourself?
-**Project Link**: https://sharans-algovisualizer.netlify.app/
+**Project Link**: https://sharanpatel.ca/algovisualizer/demo
 
 # Getting Started
 ### Prerequisites
