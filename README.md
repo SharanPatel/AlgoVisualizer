@@ -6,6 +6,12 @@ AlgoVisualizer is a React web application & learning tool that renders an animat
 
 **Searching Algorithms:** Linear Search, Jump Search, Binary Search, Interpolation Search
 
+### Built With
+- [React](https://reactjs.org/docs/getting-started.html)
+- [React Native](https://reactnative.dev/docs/getting-started)
+- [Expo](https://docs.expo.dev/)
+- [Netlify](https://docs.netlify.com/)
+
 # Demo
 
 Searching	|	Sorting
@@ -14,13 +20,6 @@ Searching	|	Sorting
 
 ### Want to try it yourself?
 **Project Link**: https://sharans-algovisualizer.netlify.app/
-
-### Built With
-- [React](https://reactjs.org/docs/getting-started.html)
-- [React Native](https://reactnative.dev/docs/getting-started)
-- [Expo](https://docs.expo.dev/)
-- [Netlify](https://docs.netlify.com/)
-
 
 # Getting Started
 ### Prerequisites
